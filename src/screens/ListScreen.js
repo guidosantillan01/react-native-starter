@@ -16,15 +16,22 @@ const ListScreen = () => {
 
   return (
     <FlatList
+      horizontal //Enable horizontaly scroll
+      showsHorizontalScrollIndicator={false} // To hide scroll bar
       keyExtractor={friend => friend.name}
       data={friends}
       renderItem={({ item }) => {
-        return <Text>{item.name}</Text>;
+        // element -> { item: { name: 'Friend #1 }, index: 0 }
+        return <Text style={styles.listElement}>{item.name}</Text>;
       }}
     />
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  listElement: {
+    marginVertical: 50
+  }
+});
 
 export default ListScreen;
